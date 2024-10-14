@@ -1,0 +1,20 @@
+[ALMA-VPN]
+alma_8 ansible_host=tz_study-vpn_server_alma_8-1
+alma_9 ansible_host=tz_study-vpn_server_alma_9-1
+
+[ALMA-VPN:vars]
+ansible_user=vpn_user
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+
+[ROCKY-VPN]
+rocky_8 ansible_host=tz_study-vpn_server_rocky_8-1
+rocky_9 ansible_host=tz_study-vpn_server_rocky_9-1
+
+[ROCKY-VPN:vars]
+ansible_user=vpn_user
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[RHELIKE:children]
+ALMA-VPN
+ROCKY-VPN
