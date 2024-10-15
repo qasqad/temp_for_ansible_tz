@@ -1,0 +1,10 @@
+---
+
+  - name: Install vpn-server
+    hosts: RHEL
+    become: yes
+
+    tasks
+
+    - name: Ping my servers
+      ping:
