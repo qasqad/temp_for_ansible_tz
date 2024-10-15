@@ -1,7 +1,7 @@
 ---
 
 - name: Install vpn-server
-  hosts: RHEL
+  hosts: RHELIKE
   become: yes
 
   tasks:
