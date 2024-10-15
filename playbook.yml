@@ -5,12 +5,12 @@
   become: yes
 
   vars:
-    vpn_source: https://www.softether-download.com/files/softether/v4.42-9798-rtm-2023.06.30-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz
-    location_folder: /app
+    vpn_source: 'https://www.softether-download.com/files/softether/v4.42-9798-rtm-2023.06.30-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz'
+    location_folder: '/app'
 
   tasks:
   - name: Ping my servers
     ping:
 
   - name: Download the VPN-Server tar-file
-    get_url: url= {{ vpn_source }} dest={{ location_folder }}
+    get_url: url= "{{ vpn_source }} dest={{ location_folder }}"
