@@ -13,4 +13,6 @@
     ping:
 
   - name: Download the VPN-Server tar-file
-    get_url: url= "{{ vpn_source }}" dest= "{{ location_folder }}"
+    get_url:
+      url: "{{ vpn_source }}"
+      dest: "{{ location_folder }}"
