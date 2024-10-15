@@ -1,11 +1,11 @@
-[ALMA-VPN]
-alma_8 ansible_host=tz_study-vpn_server_alma_8-1
-alma_9 ansible_host=tz_study-vpn_server_alma_9-1
+[ALMAVPN]
+alma8 ansible_host=tz_study-vpn_server_alma_8-1
+alma9 ansible_host=tz_study-vpn_server_alma_9-1
 
-[ROCKY-VPN]
-rocky_8 ansible_host=tz_study-vpn_server_rocky_8-1
-rocky_9 ansible_host=tz_study-vpn_server_rocky_9-1
+[ROCKYVPN]
+rocky8 ansible_host=tz_study-vpn_server_rocky_8-1
+rocky9 ansible_host=tz_study-vpn_server_rocky_9-1
 
 [RHELIKE:children]
-ALMA-VPN
-ROCKY-VPN
+ALMAVPN
+ROCKYVPN
