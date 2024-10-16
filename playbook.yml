@@ -18,7 +18,7 @@
       dest: "{{ location_folder }}"
 
   - name: Install tar
-    yum:
+    dnf:
       name: tar
       state: present
 
