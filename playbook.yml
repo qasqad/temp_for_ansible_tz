@@ -33,4 +33,3 @@
   - name: Make - action
     make:
       chdir: /app/vpnserver
-      target: install
