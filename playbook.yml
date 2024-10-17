@@ -23,4 +23,7 @@
       dest: "{{ location_folder }}"
       remote_src: yes
 
-  - name: 
+  - name: Installing make
+    dnf:
+      name: make.x86_64
+      state: latest
