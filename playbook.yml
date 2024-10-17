@@ -25,5 +25,7 @@
 
   - name: Installing make
     dnf:
-      name: make.x86_64
+      name:
+        - make.x86_64
+        - gcc.x86_64
       state: latest

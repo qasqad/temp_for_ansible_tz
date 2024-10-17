@@ -13,4 +13,4 @@ library:
   - pthread
 
 make.x86_64
-yum groupinstall "Development Tools"
+gcc.x86_64
