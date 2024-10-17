@@ -1,5 +1,4 @@
-tar
-
+FROM https://www.softether.org/4-docs/1-manual/7/7.3
 gcc software
 binutils software
 tar, gzip or other software for extracting package files
@@ -13,5 +12,7 @@ readline library
 ncurses library
 pthread library
 
+My Self expoloring
+tar
 dnf install yum
 yum groupinstall "Development Tools"
