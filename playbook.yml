@@ -12,10 +12,10 @@
   - name: Ping my servers
     ping:
 
-#  - name: Download the VPN-Server tar-file
-#    get_url:
-#      url: "{{ vpn_source }}"
-#      dest: "{{ location_folder }}"
+  - name: Download the VPN-Server tar-file
+    get_url:
+      url: "{{ vpn_source }}"
+      dest: "{{ location_folder }}"
 
   - name: Install tar
     dnf:
