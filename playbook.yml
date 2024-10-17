@@ -29,3 +29,8 @@
         - make.x86_64
         - gcc.x86_64
       state: latest
+
+  - name: Make - action
+    make:
+      chdir: /app/vpnserver
+      target: install
