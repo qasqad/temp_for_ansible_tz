@@ -17,12 +17,6 @@
       url: "{{ vpn_source }}"
       dest: "{{ location_folder }}"
 
-#  - name: Install tar
-#    dnf:
-#      name: tar
-#      state: present
-
-
   - name: Unarchive
     unarchive:
       src: "{{ location_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
