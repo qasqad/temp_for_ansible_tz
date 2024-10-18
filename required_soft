@@ -1,18 +1,16 @@
 FROM https://www.softether.org/4-docs/1-manual/7/7.3
-gcc software
-binutils software
-tar, gzip or other software for extracting package files
-chkconfig system utility
-cat, cp or other basic file operation utility
-EUC-JP, UTF-8 or other code page table for use in a Japanese language environment
-libc (glibc) library
-zlib library
-openssl library
-readline library
-ncurses library
-pthread library
+     https://www.softether.org/4-docs/1-manual/7._installing_softether_vpn_server/7.3_install_on_linux_and_initial_configurations
+gcc
+binutils
+tar, gzip
+chkconfig
+library:
+  - libc (glibc)
+  - zlib
+  - openssl
+  - readline
+  - ncurses
+  - pthread
 
-My Self expoloring
-tar
-dnf install yum
-yum groupinstall "Development Tools"
+make.x86_64
+gcc.x86_64
