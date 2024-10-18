@@ -17,7 +17,7 @@
       url: "{{ vpn_source }}"
       dest: "{{ location_folder }}"
 
-  - name: Installing make and gcc
+  - name: Installing tar,make,gcc
     dnf:
       name:
         - tar
