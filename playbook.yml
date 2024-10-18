@@ -34,3 +34,8 @@
   - name: Make - action
     make:
       chdir: /app/vpnserver
+
+
+  - name: Start VPN
+    ansible.builtin.shell: 
+
