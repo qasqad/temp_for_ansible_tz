@@ -36,7 +36,7 @@
       chdir: /app/vpnserver
 
 
-  - name: Create script
+  - name: Create scripts
     copy:
       src:
         - ./script.sh
