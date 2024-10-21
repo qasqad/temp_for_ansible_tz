@@ -1,3 +1,5 @@
+#!/bin/bash
+
 vpnserver.sh -> /opt
 chmod 755 /opt/vpnserver.sh
 mv vpnserver /usr/local

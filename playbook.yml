@@ -36,6 +36,12 @@
       chdir: /app/vpnserver
 
 
-  - name: Start VPN
-    ansible.builtin.shell: 
-
+  - name: Create script
+    copy:
+      src:
+        - ./script.sh
+        - ./vpnserver.sh
+      dest: /app
+      owner: vpn_user
+      group: root
+      mode: '0550'
