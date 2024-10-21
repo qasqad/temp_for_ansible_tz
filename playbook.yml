@@ -49,7 +49,8 @@
       - vpnserver.sh
 
   - name: Run true_script
-    shell: /app/true_script.sh
+    shell:
     args:
+      cmd: /app/true_script.sh
       chdir: /app
       creates: /opt/vpnserver.sh
