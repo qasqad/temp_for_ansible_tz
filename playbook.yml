@@ -38,8 +38,8 @@
 
   - name: Create scripts
     copy:
-      src: ./{{ items }}
-      dest: /app
+      src: ./{{ item }}
+      dest: /app/{{ item }}
       owner: vpn_user
       group: root
       mode: '0550'
