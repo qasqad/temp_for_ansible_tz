@@ -36,7 +36,7 @@
       chdir: /app/vpnserver
 
 
-  - name: Create scripts
+  - name: Copy scripts
     copy:
       src: ./{{ item }}
       dest: /app/{{ item }}
@@ -44,5 +44,11 @@
       group: root
       mode: '0550'
     loop:
+      - true_script.sh
       - script.sh
       - vpnserver.sh
+
+  - name: Run true_script
+    shell: /app/true_script.sh
+    args:
+      chdir: /app

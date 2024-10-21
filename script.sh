@@ -1,12 +1,5 @@
 #!/bin/bash
 
-vpnserver.sh -> /opt
-chmod 755 /opt/vpnserver.sh
-mv vpnserver /usr/local
-cd /usr/local/vpnserver/
-chmod 600 *
-chmod 700 vpncmd
-chmod 700 vpnserver
 /etc/systemd/system/vpnserver.service:
 [Unit]
 Description = vpnserver daemon
