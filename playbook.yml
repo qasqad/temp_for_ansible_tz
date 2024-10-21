@@ -38,11 +38,11 @@
 
   - name: Create scripts
     copy:
-      src: {{ items }}
+      src: ./{{ items }}
       dest: /app
       owner: vpn_user
       group: root
       mode: '0550'
-   loop:
+    loop:
       - script.sh
       - vpnserver.sh
