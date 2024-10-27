@@ -52,6 +52,6 @@
     file:
       state: file
       path:
-        - "{{ working_location }}/vpncmd"
-        - "{{ working_location }}/vpnserver"
+        - "{{ working_location }}/vpnserver/vpncmd"
+        - "{{ working_location }}/vpnserver/vpnserver"
       mode: '700'
