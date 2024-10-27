@@ -50,7 +50,7 @@
 
   - name: chmod for vpncmd and vpnserver
     file:
+      state: file
       path:
         - "{{ working_location }}/vpnserver/vpncmd"
-        - "{{ working_location }}/vpnserver/vpnserver"
       mode: '700'
