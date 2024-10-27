@@ -6,7 +6,7 @@
 
   vars:
     vpn_source: https://www.softether-download.com/files/softether/v4.42-9798-rtm-2023.06.30-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz
-    location_folder: /app
+    location_folder: /appC
 
   tasks:
   - name: Ping my servers
@@ -33,24 +33,4 @@
 
   - name: Make - action
     make:
-      chdir: /app/vpnserver
-
-
-  - name: Copy scripts
-    copy:
-      src: ./{{ item }}
-      dest: /app/{{ item }}
-      owner: vpn_user
-      group: root
-      mode: '0550'
-    loop:
-      - true_script.sh
-      - script.sh
-      - vpnserver.sh
-
-  - name: Run true_script
-    shell:
-    args:
-      cmd: /app/true_script.sh
-      chdir: /app
-      creates: /opt/vpnserver.sh
+      chdir: "{{ location_folder }}/vpnserver"
