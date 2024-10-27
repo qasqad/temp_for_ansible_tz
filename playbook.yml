@@ -44,9 +44,7 @@
   - name: chmod for "working_dir"
     file:
       path: "{{ working_location }}/vpnserver"
-      state:
-        - directory
-#        - file
+      state: directory
       recurse: yes
       mode: '600'
 
