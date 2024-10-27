@@ -30,6 +30,7 @@
     unarchive:
       src: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
       dest: "{{ working_location }}"
+      mode: '600'
       remote_src: yes
 
   - name: Remove *.tar
@@ -40,3 +41,10 @@
   - name: Make - action
     make:
       chdir: "{{ working_location }}/vpnserver"
+
+  - name: Chmod for vpncmd and vpnserver
+    file:
+      path:
+        - "{{ working_location }}/vpncmd"
+        - "{{ working_location }}/vpnserver"
+      mode: '700'
