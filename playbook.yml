@@ -46,7 +46,7 @@
       path: "{{ working_location }}/vpnserver"
       state:
         - directory
-        - file
+#        - file
       recurse: yes
       mode: '600'
 
