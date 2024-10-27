@@ -7,7 +7,7 @@
   vars:
     vpn_source: https://www.softether-download.com/files/softether/v4.42-9798-rtm-2023.06.30-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz
     download_folder: /app
-    working_location: /usr/local/
+    working_location: /usr/local
 
   tasks:
   - name: Ping my servers
@@ -44,6 +44,10 @@
   - name: chmod for "working_dir"
     file:
       path: "{{ working_location }}/vpnserver"
+      state:
+        - directory
+        - file
+      recurse: yes
       mode: '600'
 
   - name: chmod for vpncmd and vpnserver
