@@ -6,7 +6,8 @@
 
   vars:
     vpn_source: https://www.softether-download.com/files/softether/v4.42-9798-rtm-2023.06.30-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz
-    location_folder: /app
+    download_folder: /app
+    working_location: /usr/local/
 
   tasks:
   - name: Ping my servers
@@ -15,7 +16,7 @@
   - name: Download the VPN-Server tar-file
     get_url:
       url: "{{ vpn_source }}"
-      dest: "{{ location_folder }}"
+      dest: "{{ download_folder }}"
 
   - name: Installing tar,make,gcc
     dnf:
@@ -27,15 +28,15 @@
 
   - name: Unarchive
     unarchive:
-      src: "{{ location_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
-      dest: "{{ location_folder }}"
+      src: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
+      dest: "{{ working_location }}"
       remote_src: yes
-
-  - name: Make - action
-    make:
-      chdir: "{{ location_folder }}/vpnserver"
 
   - name: Remove *.tar
     file:
-      path: "{{ location_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
+      path: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
       state: absent
+
+  - name: Make - action
+    make:
+      chdir: "{{ working_location }}/vpnserver"
