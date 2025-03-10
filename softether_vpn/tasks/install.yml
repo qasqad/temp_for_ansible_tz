@@ -2,30 +2,30 @@
 
 
 - name: Ping my servers
-  ping:
+  ansible.builtin.ping:
 
 
 - name: Download the VPN-Server tar-file
   ansible.builtin.get_url:
     url: "{{ vpn_source }}"
     dest: "{{ download_folder }}"
-
+    mode: 644
 
 - name: Installing tar,make,gcc
-  become: yes
+  become: true
   ansible.builtin.dnf:
     name:
       - tar
       - make.x86_64
       - gcc.x86_64
-    state: latest
+    state: present
 
 
 - name: Unarchive
   ansible.builtin.unarchive:
     src: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
     dest: "{{ working_location }}"
-    remote_src: yes
+    remote_src: true
 
 
 - name: Remove *.tar
@@ -35,22 +35,22 @@
 
 
 - name: Make - action
-  become: yes
-  ansible.builtin.make:
+  become: true
+  community.general.make:
     chdir: "{{ working_location }}/vpnserver"
 
 
-- name: chmod for "working_dir"
-  become: yes
+- name: Chmod for "working_dir"
+  become: true
   ansible.builtin.file:
     path: "{{ working_location }}/vpnserver"
     state: directory
-    recurse: yes
+    recurse: true
     mode: '600'
 
 
-- name: chmod for vpncmd and vpnserver
-  become: yes
+- name: Chmod for vpncmd and vpnserver
+  become: true
   ansible.builtin.file:
     state: file
     path: "{{ item }}"

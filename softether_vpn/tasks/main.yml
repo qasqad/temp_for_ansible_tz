@@ -3,14 +3,14 @@
 
 - name: Install software
   ansible.builtin.include_tasks:
-    file: install.yml
+    file: ./install.yml
   when:
     - inventory_hostname in groups['RHELIKE']
     - purpoe=='install'
 
 - name: UNInstall software
   ansible.builtin.include_tasks:
-    file: uninstall.yml
+    file: ./uninstall.yml
   when:
     - inventory_hostname in groups['RHELIKE']
     - purpose=='uninstall'
