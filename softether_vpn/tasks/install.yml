@@ -1,0 +1,63 @@
+---
+
+
+- name: Ping my servers
+  ansible.builtin.ping:
+
+
+- name: Download the VPN-Server tar-file
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ vpn_source }}"
+    dest: "{{ download_folder }}"
+    mode: 644
+
+- name: Installing tar,make,gcc
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - tar
+      - make.x86_64
+      - gcc.x86_64
+    state: present
+
+
+- name: Unarchive
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
+    dest: "{{ working_location }}"
+    remote_src: true
+
+
+- name: Remove *.tar
+  become: true
+  ansible.builtin.file:
+    path: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
+    state: absent
+
+
+- name: Make - action
+  become: true
+  community.general.make:
+    chdir: "{{ working_location }}/vpnserver"
+
+
+- name: Chmod for "working_dir"
+  become: true
+  ansible.builtin.file:
+    path: "{{ working_location }}/vpnserver"
+    state: directory
+    recurse: true
+    mode: '600'
+
+
+- name: Chmod for vpncmd and vpnserver
+  become: true
+  ansible.builtin.file:
+    state: file
+    path: "{{ item }}"
+    mode: '700'
+  loop:
+    - "{{ working_location }}/vpnserver/vpncmd"
+    - "{{ working_location }}/vpnserver/vpnserver"

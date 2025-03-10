@@ -1,0 +1,16 @@
+---
+# tasks file for softether_vpn
+
+- name: Install software
+  ansible.builtin.include_tasks:
+    file: ./install.yml
+  when:
+    - inventory_hostname in groups['RHELIKE']
+    - purpose=='install'
+
+- name: UNInstall software
+  ansible.builtin.include_tasks:
+    file: ./uninstall.yml
+  when:
+    - inventory_hostname in groups['RHELIKE']
+    - purpose=='uninstall'
