@@ -6,7 +6,7 @@
     file: ./install.yml
   when:
     - inventory_hostname in groups['RHELIKE']
-    - purpoe=='install'
+    - purpose=='install'
 
 - name: UNInstall software
   ansible.builtin.include_tasks:
