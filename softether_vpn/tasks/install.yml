@@ -6,6 +6,7 @@
 
 
 - name: Download the VPN-Server tar-file
+  become: true
   ansible.builtin.get_url:
     url: "{{ vpn_source }}"
     dest: "{{ download_folder }}"
@@ -22,6 +23,7 @@
 
 
 - name: Unarchive
+  become: true
   ansible.builtin.unarchive:
     src: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
     dest: "{{ working_location }}"
@@ -29,6 +31,7 @@
 
 
 - name: Remove *.tar
+  become: true
   ansible.builtin.file:
     path: "{{ download_folder }}/softether-vpnserver-v4.42-9798-rtm-2023.06.30-linux-x64-64bit.tar.gz"
     state: absent
