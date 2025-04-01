@@ -6,6 +6,9 @@ alma9 ansible_host=tz_study-vpn_server_alma_9-1
 rocky8 ansible_host=tz_study-vpn_server_rocky_8-1
 rocky9 ansible_host=tz_study-vpn_server_rocky_9-1
 
+[UVPN]
+ubuntu_vpn ansible_host=tz_study-vpn_server_ubuntu-1
+
 [RHELIKE:children]
 ALMAVPN
 ROCKYVPN

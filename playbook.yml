@@ -1,5 +1,5 @@
 ---
-- hosts: RHELIKE
+- hosts: all
   roles:
     - softether_vpn
   vars:
