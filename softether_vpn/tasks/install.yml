@@ -14,7 +14,7 @@
 
 - name: Installing tar,make,gcc
   become: true
-  ansible.builtin.dnf:
+  ansible.builtin.apt:
     name:
       - tar
       - make.x86_64
