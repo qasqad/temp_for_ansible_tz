@@ -17,8 +17,8 @@
   ansible.builtin.apt:
     name:
       - tar
-      - make.x86_64
-      - gcc.x86_64
+      - make
+      - gcc
     state: present
 
 
